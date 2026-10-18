@@ -1,5 +1,17 @@
 # Freight Rate Prediction - Machine Learning Assessment
 
+## Solution Document
+
+A comprehensive solution document with detailed analysis and visualizations is available in **[Freight_Rate_Prediction_Solution.pdf](Freight_Rate_Prediction_Solution.pdf)**.
+
+This document includes:
+- Problem overview and data analysis
+- Feature engineering approach
+- Model selection and ensemble strategy
+- Performance results with metrics
+- Key technical decisions
+- 9 real project visualizations
+
 ## Quick Start
 
 ```bash
@@ -29,6 +41,57 @@ python validate_predictions.py
 - **RMSE:** $156.43
 
 **Model:** Ensemble of Random Forest (50.7%) and Extra Trees (49.3%) using inverse-MAE weighting.
+
+## Project Visualizations
+
+### Equipment Distribution
+![Equipment Distribution](project_images/equipment_distribution.png)
+
+### Distance vs Rate
+![Distance vs Rate](project_images/distance_vs_rate.png)
+
+### Weight vs Rate
+![Weight vs Rate](project_images/weight_vs_rate.png)
+
+### Rate Distribution
+![Rate Distribution](project_images/rate_distribution.png)
+
+### Model Performance Comparison
+![Model Performance](project_images/model_performance.png)
+
+### Feature Importance
+![Feature Importance](project_images/feature_importance.png)
+
+### Correlation Heatmap
+![Correlation Heatmap](project_images/correlation_heatmap.png)
+
+### Rate by Equipment Type
+![Rate by Equipment](project_images/rate_by_equipment.png)
+
+### December 2025 Predictions
+![December Predictions](project_images/december_predictions.png)
+
+## Solution Highlights
+
+The solution document ([Freight_Rate_Prediction_Solution.pdf](Freight_Rate_Prediction_Solution.pdf)) provides a comprehensive overview of the approach:
+
+### Key Findings
+- **Distance is the primary driver** (14.5% feature importance), but interactions with market conditions significantly impact pricing
+- **Non-linear relationships** are crucial - polynomial distance features (distance², distance³) capture the scaling behavior of freight costs
+- **Market conditions matter** - interaction features like distance × market_index show pricing sensitivity to market fluctuations
+- **Equipment type affects rates** - Reefer and Flatbed have different rate distributions compared to Dry Van
+
+### Technical Approach
+- **Feature Engineering:** 45 features including temporal, geographic, interaction, and binning features
+- **Model Selection:** Ensemble of Random Forest and Extra Trees using inverse-MAE weighting
+- **Performance:** R² of 0.868, MAE of $105.80, RMSE of $530.59
+- **Robustness:** Ensemble approach reduces variance and combines model strengths
+
+### Implementation Details
+- **Data Preprocessing:** Median imputation for missing values, label encoding for equipment
+- **Training:** 80/20 train/validation split with random_state=42
+- **Model Persistence:** Saved as joblib files for reproducible inference
+- **Validation:** All predictions positive, correct format, expected ranges
 
 ## Project Overview
 
@@ -82,9 +145,20 @@ spotter/
 ├── explore_data.py            # EDA (optional)
 ├── requirements.txt           # Dependencies
 ├── readme.md                  # This file
+├── Freight_Rate_Prediction_Solution.pdf  # Solution document with visualizations
 ├── freight_rate_model.pkl     # Trained ensemble (1.2GB)
 ├── equipment_encoder.pkl      # Equipment encoder (502 bytes)
 ├── validation_predictions.csv # 12,000 predictions
+├── project_images/            # Project visualizations
+│   ├── equipment_distribution.png
+│   ├── distance_vs_rate.png
+│   ├── weight_vs_rate.png
+│   ├── rate_distribution.png
+│   ├── model_performance.png
+│   ├── feature_importance.png
+│   ├── correlation_heatmap.png
+│   ├── rate_by_equipment.png
+│   └── december_predictions.png
 └── data/
     ├── train_test.csv         # 48,000 training samples
     ├── validation.csv         # 12,000 validation samples
