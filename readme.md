@@ -2,7 +2,7 @@
 
 ## Solution Document
 
-A comprehensive solution document with detailed analysis and visualizations is available in **[Freight_Rate_Prediction_Solution.pdf](Freight_Rate_Prediction_Solution.pdf)**.
+A comprehensive solution document with detailed analysis and visualizations is available in **https://drive.google.com/file/d/1oHV5HLd_t9EABeESFPVddwgOlP5QPxWH/view?usp=sharing**.
 
 This document includes:
 - Problem overview and data analysis
